@@ -1,6 +1,9 @@
 // const backsideFile = "backside.png";
 import { cards } from "./cards.js";
 const gameEl = document.getElementById("game");
+let lastCard;
+let lastCardEl;
+
 // 1. Med forEach Lägg till en property showing: false till varje kort
 // för att hålla reda på om kortet är visas eller inte.
 // 2. Skapa en funktion createCard. Som tar ett card-objekt och ett index som input och skapar
@@ -27,7 +30,7 @@ function createCard(card, index) {
   imgElement.style.width = "100px";
   imgElement.style.height = "145px";
 
-  imgElement.addEventListener("click", function () {
+  imgElement.addEventListener("click", function (e) {
     if (card.showing === true) {
       imgElement.setAttribute("src", card.file);
       card.showing = false;
